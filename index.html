@@ -10,37 +10,69 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/datetimepicker.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#picker').dateTimePicker();
         })
     </script>
 </head>
 
 <body>
-    <h1>Cronometro para reuniões</h1>
+    <div class="container-fluid main-wrapper">
+        <div class="section right col-xs-9">
+            <div id="form" class="section">
 
-    <!-- DAta picker, é de uma biblioteca externa-->
-    <div id="picker"> </div>
-    <input type="hidden" id="result" value="" />
 
-    <!-- Botão que ativa o cronometro-->
-    <button id="SetTimer"> Ativar Timer</button>
-    <hr>
+                <h1 class="display-4">CRONÔMETRO PARA REUNIÕES</h1>
 
-    <!-- O cronometro em si, só colocar os ids nos elemntos-->
-    <p id="days"></p>
-    <p id="hours"></p>
-    <p id="minutes"></p>
-    <p id="seconds"></p>
+                <!-- DAta picker, é de uma biblioteca externa-->
+                <span class="mt-5 display-4 selecione-text">Selecione o horario da reunião:</span>
+                <div id="picker" class="mb-5 mt-2 border border-primary rounded-pill"> </div>
+                <input type="hidden" id="result" value="teste" />
 
+                <!-- Botão que ativa o cronometro-->
+                <button type="button" id="SetTimer" class="btn btn-primary-outline btn-lg btn-block rounded-pill"> Ativar Timer</button>
+                <hr>
+            </div>
+
+            <!-- O cronometro em si, só colocar os ids nos elemntos-->
+            <div class="container " id="timer">
+                <div class="row">
+                    <div class="col text-center">
+                        <h1 class="display-4 align-self-center text-center" id="timer-text">
+                            <span id="days"></span>
+                            <span id="hours"></span>
+                            <span id="minutes"></span>
+                            <span id="seconds"></span></h1>
+                        <h1 class=" display-4 text-danger align-self-center text-center" id="invalid-text">
+                            HORA INVÁLIDA
+                        </h1>
+                    </div>
+                </div>
+                <div class="row section">
+                    <button id="BackTimer" class="btn btn-primary-outline btn-lg rounded-pill " type="button"> Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
-    window.onload = function (e) {
+    window.onload = function(e) {
         var intervalHandle = null;
+        var isTimer = "false";
+        $("#timer").hide();
 
-        $("#SetTimer").click(function () {
+        $("#BackTimer").click(function() {
+            $("#timer").hide();
+            $("#form").show();
+            console.log("VOLTAR");
+        });
+
+        $("#SetTimer").click(function() {
+
 
             var $picker = $("#picker");
             var tempo = $("#picker")[0].textContent;
@@ -48,7 +80,7 @@
             clearInterval(intervalHandle);
 
             var
-                eventTime = moment(tempo, 'YYYY-MM-DD HH:mm:ss').unix(),
+                eventTime = moment(tempo, 'HH:mm:ss').unix(),
                 currentTime = moment().unix(),
                 diffTime = eventTime - currentTime,
                 duration = moment.duration(diffTime * 1000, 'milliseconds'),
@@ -60,8 +92,11 @@
 
 
             // if time to countdown
+            console.log(tempo);
             if (diffTime > 0) {
-                intervalHandle = setInterval(function () {
+                $("#timer-text").show();
+                $("#invalid-text").hide();
+                intervalHandle = setInterval(function() {
                     duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
 
                     if (duration < 0) return;
@@ -77,12 +112,19 @@
                     s = $.trim(s).length === 1 ? '0' + s : s;
 
                     // show how many hours, minutes and seconds are left
-                    $days.text(d + " d");
-                    $hours.text(h + " h");
-                    $minutes.text(m + " m");
-                    $seconds.text(s + " s");
+                    //$days.text(d + " d : ");
+                    $hours.text(h + "  : ");
+                    $minutes.text(m + "  : ");
+                    $seconds.text(s + " ");
                 }, interval);
+            } else {
+                $("#timer-text").hide();
+                $("#invalid-text").show();
             }
+
+
+            $("#timer").show();
+            $("#form").hide();
         });
     };
 </script>

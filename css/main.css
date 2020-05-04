@@ -1,0 +1,24 @@
+.main-wrapper {
+    height: 100vh;
+}
+
+.section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer {
+    display: none;
+}
+
+.selecione-text {
+    font-size: 2rem;
+}
+
+.btn-primary-outline {
+    background-color: transparent;
+    border-color: #ccc;
+}
