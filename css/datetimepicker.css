@@ -46,7 +46,7 @@
 
 .dtp_modal-content {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 30px;
     width: auto;
     position: absolute;
     z-index: 1000;
@@ -128,8 +128,7 @@
 }
 
 .dpt_modal-button {
-    background-color: #01adff;
-    color: #fff;
+    background-color: #transparent;
     font-size: 24px;
     padding: 8px 40px;
     float: left;
@@ -139,7 +138,7 @@
     cursor: pointer;
     border: solid 1px #fff;
     border-radius: 500px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-color: black;
 }
 
 .dtp_modal-time-line {

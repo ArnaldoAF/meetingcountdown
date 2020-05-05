@@ -7,7 +7,7 @@
             dateFormat: "YYYY-MM-DD HH:mm",
             showTime: true,
             locale: 'en',
-            positionShift: { top: 20, left: 0 },
+            positionShift: { top: -100, left: -100 },
             buttonTitle: "OK"
         }, options);
         moment.locale(settings.locale);

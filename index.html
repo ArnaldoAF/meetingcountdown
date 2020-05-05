@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/datetimepicker.css" rel="stylesheet" type="text/css" />
-    <title>Cronometro</title>
+    <link rel="icon" href="./time.png">
+    <title>Contagem Regressiva</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/datetimepicker.js"></script>
@@ -26,11 +27,11 @@
             <div id="form" class="section">
 
 
-                <h1 class="display-4">CRONÔMETRO PARA REUNIÕES</h1>
+                <h1 class="display-4">CONTAGEM REGRESSIVA PARA REUNIÕES</h1>
 
                 <!-- DAta picker, é de uma biblioteca externa-->
                 <span class="mt-5 display-4 selecione-text">Selecione o horario da reunião:</span>
-                <div id="picker" class="mb-5 mt-2 border border-primary rounded-pill"> </div>
+                <div id="picker" class="mb-5 mt-2 border border-dark rounded-pill"> </div>
                 <input type="hidden" id="result" value="teste" />
 
                 <!-- Botão que ativa o cronometro-->
@@ -48,7 +49,7 @@
                             <span id="minutes"></span>
                             <span id="seconds"></span></h1>
                         <h1 class=" display-4 text-danger align-self-center text-center" id="invalid-text">
-                            HORA INVÁLIDA
+                            HORA MENOR QUE O HORA ATUAL
                         </h1>
                     </div>
                 </div>
@@ -128,5 +129,8 @@
         });
     };
 </script>
+<!--
+    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+-->
 
 </html>

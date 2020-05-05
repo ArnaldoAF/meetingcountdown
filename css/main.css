@@ -20,5 +20,9 @@
 
 .btn-primary-outline {
     background-color: transparent;
-    border-color: #ccc;
+    border-color: black;
+}
+
+#timer-text {
+    font-size: 9rem;
 }
