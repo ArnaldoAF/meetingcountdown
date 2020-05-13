@@ -26,3 +26,27 @@
 #timer-text {
     font-size: 9rem;
 }
+
+
+/*DARK MODE*/
+
+body {
+    background-color: #212529;
+    color: #a4b3bf;
+}
+
+.btn-primary-outline {
+    background-color: transparent;
+    border-color: #a4b3bf;
+    color: #a4b3bf;
+}
+
+.btn-primary-outline:hover {
+    background-color: transparent;
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.dtp_main {
+    background-color: #212529;
+}
