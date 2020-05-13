@@ -35,18 +35,24 @@ body {
     color: #a4b3bf;
 }
 
-.btn-primary-outline {
+.btn-primary-outline,
+.dpt_modal-button,
+.cursorily,
+.dtp_modal-time-line {
     background-color: transparent;
     border-color: #a4b3bf;
     color: #a4b3bf;
 }
 
-.btn-primary-outline:hover {
+.btn-primary-outline:hover,
+.dpt_modal-button:hover,
+.cursorily:hover {
     background-color: transparent;
     border-color: #6c757d;
     color: #6c757d;
 }
 
-.dtp_main {
+.dtp_main,
+.dtp_modal-content {
     background-color: #212529;
 }
