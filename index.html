@@ -74,6 +74,8 @@
 
         $("#SetTimer").click(function() {
 
+            $("#timer").removeClass();
+            $("#timer").addClass("container");
 
             var $picker = $("#picker");
             var tempo = $("#picker")[0].textContent;
@@ -117,11 +119,21 @@
                     $hours.text(h + "  : ");
                     $minutes.text(m + "  : ");
                     $seconds.text(s + " ");
+
+                    if (h == 0 && m == 0 && s == 0) {
+                        console.log(h + ":" + m + ":" + s);
+                        $("#timer").addClass("text-danger");
+                    }
+                    if (h == 0 && m < 1) {
+                        console.log(h + ":" + m + ":" + s);
+                        $("#timer").addClass("text-warning");
+                    }
                 }, interval);
             } else {
                 $("#timer-text").hide();
                 $("#invalid-text").show();
             }
+
 
 
             $("#timer").show();
